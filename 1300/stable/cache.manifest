@@ -3,7 +3,6 @@ CACHE MANIFEST
 # v11 - goldhen b18.12
 
 CACHE:
-../../assets/amine-theme.css
 ../../assets/amine-bg.webp
 ../../pspulse.png
 index.html

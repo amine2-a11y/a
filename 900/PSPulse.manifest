@@ -3,7 +3,6 @@ CACHE MANIFEST
 #VERSION 2.6 - goldhen b18.12
 
 CACHE: 
-../assets/amine-theme.css
 ../assets/amine-bg.webp
 alert.js
 cache.html
@@ -50,10 +49,6 @@ payloads/rif-renamer.bin
 payloads/WebRTE_900.bin
 rop/900.js
 rop/950.js
-
-assets/amine-compact.css
-
-assets/amine-zombie.css
 
 NETWORK: 
 *

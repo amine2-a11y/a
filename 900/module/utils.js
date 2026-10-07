@@ -34,7 +34,10 @@ export function log(msg='') {
     console.append(msg + '\n');
 }*/
 
-export const log = print; 
+export function log(msg='') {
+    print(msg);
+    try { if (window.amineStage) window.amineStage(msg); } catch (_) {}
+}
 window.log = log;
 
 export function clear_log() {

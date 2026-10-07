@@ -221,26 +221,51 @@ body{background:radial-gradient(circle at 70% 20%,#07345a 0,#06101c 35%,#010307 
 .amine-start{width:100%;border:1px solid #28b4ff;border-radius:14px;padding:16px 22px;background:linear-gradient(90deg,#0875d1,#0ba6ff);color:white;font-size:20px;font-weight:900;letter-spacing:2px;cursor:pointer;box-shadow:0 0 24px rgba(25,169,255,.32)}
 .amine-start:focus,.amine-start:hover{outline:2px solid white;outline-offset:2px}.amine-foot{text-align:center;color:#678197;font-size:12px;margin-top:15px;letter-spacing:2px}
 @media(max-width:650px){.amine-info{grid-template-columns:1fr}.amine-card{padding:20px}.amine-launch{padding:24px 12px}}
-</style><style>/* AMINE PS4 OFFLINE BACKGROUND */
+</style><style>
+/* AMINE PS4 — tiny jailbreak stage indicator */
+#amine-jb-stage{position:fixed;left:50%;bottom:9.5%;transform:translateX(-50%);z-index:99999;width:260px;padding:7px 10px 8px;border:1px solid rgba(25,169,255,.38);border-radius:9px;background:rgba(2,8,16,.86);box-shadow:0 4px 22px rgba(0,0,0,.35),inset 0 0 18px rgba(25,169,255,.05);backdrop-filter:blur(5px);font:10px/1.2 Arial,sans-serif;color:#dceeff;text-align:center;display:none;pointer-events:none}
+#amine-jb-stage .stage-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+#amine-jb-stage .stage-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#amine-jb-stage .stage-pct{font-weight:700;color:#36d7ff;min-width:31px;text-align:right}
+#amine-jb-stage .stage-bar{height:3px;margin-top:6px;border-radius:3px;background:rgba(255,255,255,.10);overflow:hidden}
+#amine-jb-stage .stage-fill{height:100%;width:0;background:linear-gradient(90deg,#16a8ff,#36e0ff);box-shadow:0 0 8px rgba(54,224,255,.55);transition:width .25s ease}
+#amine-jb-stage .stage-dots{display:flex;justify-content:center;gap:5px;margin-top:5px}
+#amine-jb-stage .stage-dots i{width:4px;height:4px;border-radius:50%;background:#41576a;display:block}
+#amine-jb-stage .stage-dots i.on{background:#36d7ff;box-shadow:0 0 6px #36d7ff}
+@media(max-width:700px){#amine-jb-stage{width:220px;bottom:10%;font-size:9px}}
+/* AMINE PS4 OFFLINE BACKGROUND */
 html,body{min-height:100%;background:#05070b url("../assets/amine-bg.webp") center center/cover fixed no-repeat !important;}
 body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,12,28,.35),rgba(0,0,0,.48));pointer-events:none;}
 body::after{content:"";position:fixed;inset:0;z-index:-2;background:rgba(0,0,0,.18);pointer-events:none;}
-</style><link rel="stylesheet" href="../assets/amine-theme.css"><link rel="stylesheet" href="../assets/amine-compact.css"><link rel="stylesheet" href="../assets/amine-zombie.css">
-<style id="amine-900-zombie-fallback">
-html,body{background:#050806 url("../assets/amine-bg.webp") center center/cover fixed no-repeat!important;color:#edf4df!important;font-family:Arial,Helvetica,sans-serif!important}
-body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.58)),radial-gradient(circle at 50% 15%,rgba(166,214,90,.12),transparent 38%)}
-.app{position:relative!important;z-index:1!important}
-.amine-launch{position:relative!important;z-index:2!important}
-.amine-card{background:rgba(7,14,9,.93)!important;border:1px solid rgba(166,214,90,.48)!important;box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 30px rgba(166,214,90,.08)!important}
-.amine-brand{font-size:clamp(24px,4vw,44px)!important;letter-spacing:3px!important}
-.amine-title{font-size:clamp(25px,4vw,42px)!important}
-.amine-sub,.amine-foot{font-size:12px!important}
-.amine-start{font-size:15px!important;padding:12px 18px!important;background:linear-gradient(90deg,#4e7125,#a6d65a,#587f2b)!important;color:#071006!important;border-color:#d5ff63!important}
-.amine-cache{font-size:12px!important;color:#b9e878!important}
 </style>
+<script>
+(function(){
+  var labels=['STARTING','WEBKIT / UAF','READ PRIMITIVE','READ / WRITE','GOLDHEN'];
+  window.amineStage=function(msg){
+    var box=document.getElementById('amine-jb-stage'); if(!box)return;
+    var t=String(msg||'').toLowerCase(); var n=0;
+    if(/load goldhen succeeded|goldhen.*success|jailbreak success/.test(t)) n=4;
+    else if(/arbitrary read\/write|arbitrary read|achieve arbitrary/.test(t)) n=3;
+    else if(/relative read|read primitive|make_rdr/.test(t)) n=2;
+    else if(/uaf ssv|webkit|uaf/.test(t)) n=1;
+    else n=0;
+    box.style.display='block';
+    var name=box.querySelector('.stage-name'), pct=box.querySelector('.stage-pct'), fill=box.querySelector('.stage-fill');
+    var dots=box.querySelectorAll('.stage-dots i');
+    name.textContent=labels[n]; pct.textContent=(n===4?'100':String(Math.min(96,10+n*22)))+'%'; fill.style.width=(n===4?100:(10+n*22))+'%';
+    dots.forEach(function(d,i){d.className=i<=n?'on':''});
+    if(n===4){setTimeout(function(){box.style.display='none'},1800);}
+  };
+  window.addEventListener('load',function(){
+    var b=document.createElement('div'); b.id='amine-jb-stage';
+    b.innerHTML='<div class="stage-top"><span class="stage-name">STARTING</span><span class="stage-pct">10%</span></div><div class="stage-bar"><div class="stage-fill"></div></div><div class="stage-dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>';
+    document.body.appendChild(b);
+  });
+})();
+</script>
 </head>
 
-<body onload="if (window.ps4FirmwareSupported) load_exploit();">
+<body onload="if (window.ps4FirmwareSupported) { if(window.amineStage) amineStage('STARTING'); load_exploit(); }">
     <div class="app"><div class="amine-launch">
 <div class="amine-brand">AMINE <span>PS4</span></div>
 <div class="amine-card">
@@ -248,7 +273,7 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;backg
 <p class="amine-sub">Unified offline launch interface</p>
 <div class="amine-info"><div><small>FIRMWARE</small><strong>9.00</strong></div><div><small>MODE</small><strong>OFFLINE</strong></div><div><small>STATUS</small><strong>READY</strong></div></div>
 <div class="amine-cache">✓ CACHE READY — Offline interface enabled</div>
-<button class="amine-start" onclick="if(typeof load_exploit==='function'){load_exploit();}">🚀 START GOLDHEN</button>
+<button class="amine-start" onclick="if(window.amineStage)amineStage('STARTING'); if(typeof load_exploit==='function'){load_exploit();}">🚀 START GOLDHEN</button>
 <div class="amine-foot">AMINE PS4 • SIMPLE / FAST / OFFLINE</div>
 </div></div>
         <header class="bar">
