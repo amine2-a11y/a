@@ -24,3 +24,5 @@ ps4debug.bin
 pup-decrypt.bin
 restore.bin
 rif-renamer.bin
+CACHE:
+../assets/amine-bg.webp

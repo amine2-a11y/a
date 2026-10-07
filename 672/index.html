@@ -220,9 +220,13 @@ body{background:radial-gradient(circle at 70% 20%,#07345a 0,#06101c 35%,#010307 
 .amine-start{width:100%;border:1px solid #28b4ff;border-radius:14px;padding:16px 22px;background:linear-gradient(90deg,#0875d1,#0ba6ff);color:white;font-size:20px;font-weight:900;letter-spacing:2px;cursor:pointer;box-shadow:0 0 24px rgba(25,169,255,.32)}
 .amine-start:focus,.amine-start:hover{outline:2px solid white;outline-offset:2px}.amine-foot{text-align:center;color:#678197;font-size:12px;margin-top:15px;letter-spacing:2px}
 @media(max-width:650px){.amine-info{grid-template-columns:1fr}.amine-card{padding:20px}.amine-launch{padding:24px 12px}}
+</style><style>/* AMINE PS4 OFFLINE BACKGROUND */
+html,body{min-height:100%;background:#05070b url("../assets/amine-bg.webp") center center/cover fixed no-repeat !important;}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,12,28,.35),rgba(0,0,0,.48));pointer-events:none;}
+body::after{content:"";position:fixed;inset:0;z-index:-2;background:rgba(0,0,0,.18);pointer-events:none;}
 </style></head>
 
-<body onload="setTimeout(function(){ if (typeof load_goldhen18 === 'function') load_goldhen18(); }, 150);">
+<body>
     <div class="app"><div class="amine-launch">
 <div class="amine-brand">AMINE <span>PS4</span></div>
 <div class="amine-card">
@@ -446,12 +450,6 @@ body{background:radial-gradient(circle at 70% 20%,#07345a 0,#06101c 35%,#010307 
             loadScript1();
         }
     </script>
-    <script>
-function amineRestartStatus(){
-  var msg=document.getElementById("msgs2")||document.getElementById("msgs")||document.getElementById("state");
-  if(msg) msg.innerHTML="Jailbreak loaded. PS4 restart must be done from the console; no reboot hook is present in this project.";
-}
-</script>
-</body>
+    </body>
 
 </html>

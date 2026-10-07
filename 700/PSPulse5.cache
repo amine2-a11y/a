@@ -2,6 +2,7 @@ CACHE MANIFEST
 # v8 - goldhen b18.12 (stable branch)
 
 CACHE:
+../assets/amine-bg.webp
 version-selector.html
 index5.html
 alert5.mjs

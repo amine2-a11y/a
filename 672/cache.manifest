@@ -3,6 +3,7 @@ CACHE MANIFEST
 # v1.7 - goldhen b18.12
 
 CACHE: 
+../assets/amine-bg.webp
 index.html
 pl_loader.js
 goldhen.bin
