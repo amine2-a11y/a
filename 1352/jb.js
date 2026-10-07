@@ -3366,6 +3366,21 @@ let allDone = false,
     try {
       if (typeof A !== "undefined" && A) A.busy = 0;
     } catch (e) {}
+    // Retry the jailbreak itself after a failed attempt; this does not reboot the PS4.
+    if (!allDone) {
+      try {
+        var n = parseInt(sessionStorage.getItem("amineJbRetry1352") || "0", 10) || 0;
+        if (n < 3) {
+          sessionStorage.setItem("amineJbRetry1352", String(n + 1));
+          state("jailbreak failed - retrying (" + (n + 1) + "/3)", "warn");
+          setTimeout(function () { location.reload(); }, 2200);
+        } else {
+          state("jailbreak failed - manual retry", "bad");
+        }
+      } catch (retryErr) {}
+    } else {
+      try { sessionStorage.removeItem("amineJbRetry1352"); } catch (e) {}
+    }
     mark(
       "PROOF-SUMMARY-FINAL",
       "pass=" +
