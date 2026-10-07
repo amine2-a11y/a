@@ -3,6 +3,7 @@ CACHE MANIFEST
 #VERSION 2.5 - goldhen b18.12 (stable branch)
 
 CACHE: 
+../assets/amine-theme.css
 ../assets/amine-bg.webp
 alert5.js
 cache5.html
