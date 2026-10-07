@@ -204,10 +204,35 @@
             }
         }
     </script>
-</head>
+<style id="amine-ps4-unified-ui">
+:root{--a:#19a9ff;--g:#19ff88;--bg:#03070d;--panel:rgba(5,13,24,.94);--txt:#eef7ff;--dim:#8ba2b8}
+body{background:radial-gradient(circle at 70% 20%,#07345a 0,#06101c 35%,#010307 75%)!important;color:var(--txt)!important;font-family:Arial,sans-serif!important}
+.app{min-height:100vh!important;position:relative!important;display:block!important;padding:0!important}
+.app>.amine-launch{display:flex!important}
+.app> :not(.amine-launch){display:none!important}
+.amine-launch{box-sizing:border-box;min-height:100vh;width:100%;padding:5vh 6vw;align-items:center;justify-content:center;flex-direction:column;gap:18px;background:radial-gradient(circle at 75% 25%,rgba(0,145,255,.18),transparent 32%),linear-gradient(135deg,rgba(0,0,0,.35),rgba(0,10,22,.78))}
+.amine-brand{font-size:clamp(32px,6vw,64px);font-weight:900;letter-spacing:5px;text-transform:uppercase;text-shadow:0 0 18px rgba(25,169,255,.55)}
+.amine-brand span{color:var(--a)}
+.amine-card{width:min(900px,94vw);box-sizing:border-box;background:var(--panel);border:1px solid rgba(25,169,255,.55);border-radius:22px;padding:28px;box-shadow:0 0 45px rgba(0,120,255,.18),inset 0 0 35px rgba(0,0,0,.25)}
+.amine-title{text-align:center;font-size:clamp(34px,5vw,58px);font-weight:900;margin:0 0 8px}.amine-title b{color:#ffd52a}.amine-sub{text-align:center;color:var(--dim);margin:0 0 22px;font-size:15px}
+.amine-info{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.amine-info div{background:rgba(255,255,255,.035);border-radius:12px;padding:14px;text-align:center}.amine-info small{display:block;color:var(--dim);margin-bottom:5px}.amine-info strong{font-size:17px}
+.amine-cache{margin:18px 0;padding:13px 16px;border-radius:12px;border:1px solid rgba(25,255,136,.35);color:var(--g);background:rgba(25,255,136,.055);text-align:center}
+.amine-start{width:100%;border:1px solid #28b4ff;border-radius:14px;padding:16px 22px;background:linear-gradient(90deg,#0875d1,#0ba6ff);color:white;font-size:20px;font-weight:900;letter-spacing:2px;cursor:pointer;box-shadow:0 0 24px rgba(25,169,255,.32)}
+.amine-start:focus,.amine-start:hover{outline:2px solid white;outline-offset:2px}.amine-foot{text-align:center;color:#678197;font-size:12px;margin-top:15px;letter-spacing:2px}
+@media(max-width:650px){.amine-info{grid-template-columns:1fr}.amine-card{padding:20px}.amine-launch{padding:24px 12px}}
+</style></head>
 
-<body>
-    <div class="app">
+<body onload="setTimeout(function(){ if (typeof load_goldhen18 === 'function') load_goldhen18(); }, 150);">
+    <div class="app"><div class="amine-launch">
+<div class="amine-brand">AMINE <span>PS4</span></div>
+<div class="amine-card">
+<h1 class="amine-title">Gold<span style="color:#fff">HEN</span> <b>v2.4b18.12</b></h1>
+<p class="amine-sub">Unified offline launch interface</p>
+<div class="amine-info"><div><small>FIRMWARE</small><strong>6.72</strong></div><div><small>MODE</small><strong>OFFLINE</strong></div><div><small>STATUS</small><strong>READY</strong></div></div>
+<div class="amine-cache">✓ CACHE READY — Offline interface enabled</div>
+<button class="amine-start" onclick="if(typeof load_goldhen18==='function'){load_goldhen18();}">🚀 START GOLDHEN</button>
+<div class="amine-foot">AMINE PS4 • SIMPLE / FAST / OFFLINE</div>
+</div></div>
         <header class="bar">
             <span><b>AMINE PS4</b> // ps4 hosts</span>
             <span class="bar-fw">fw 6.72 ready</span>
@@ -421,6 +446,12 @@
             loadScript1();
         }
     </script>
-    </body>
+    <script>
+function amineRestartStatus(){
+  var msg=document.getElementById("msgs2")||document.getElementById("msgs")||document.getElementById("state");
+  if(msg) msg.innerHTML="Jailbreak loaded. PS4 restart must be done from the console; no reboot hook is present in this project.";
+}
+</script>
+</body>
 
 </html>
