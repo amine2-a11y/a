@@ -31,3 +31,5 @@ src/ps4/patches/850.bin #889aeea9e4d4316ca1cbbb49066faac85e90c3b0fc5bbea2126c6ea
 src/ps4/patches/900.bin #1645039fd48ec3f9b4fbbbb92daf7df5faf41e6bb8d815b4a8edb27f35fd9ae4
 src/ps4/patches/903.bin #779a980d04afc6dc89ff6b77af058636904b3559734f9efe3c1d46d20dc14a73
 src/ps4/patches/950.bin #d3d536b07cf9f07d91a18472255f71d83233d6b094628ced474477cd8b912608
+CACHE:
+../../assets/amine-bg.webp

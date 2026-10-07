@@ -194,7 +194,11 @@
             .chain-option { flex: 1; }
         }
     </style>
-</head>
+<style>/* AMINE PS4 OFFLINE BACKGROUND */
+html,body{min-height:100%;background:#05070b url("../../assets/amine-bg.webp") center center/cover fixed no-repeat !important;}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,12,28,.35),rgba(0,0,0,.48));pointer-events:none;}
+body::after{content:"";position:fixed;inset:0;z-index:-2;background:rgba(0,0,0,.18);pointer-events:none;}
+</style></head>
 
 <body>
     <div class="app">
