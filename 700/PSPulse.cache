@@ -2,6 +2,7 @@ CACHE MANIFEST
 # v9 - goldhen b18.12
 
 CACHE:
+version-selector.html
 index.html
 alert.mjs
 config.mjs

@@ -2,6 +2,7 @@ CACHE MANIFEST
 # v8 - goldhen b18.12 (stable branch)
 
 CACHE:
+version-selector.html
 index5.html
 alert5.mjs
 config.mjs
