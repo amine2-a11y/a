@@ -2,6 +2,7 @@ CACHE MANIFEST
 # v3 - flat host, goldhen b18.12 for 13.02-13.52
 
 CACHE:
+../pspulse.png
 index.html
 jb.html
 cache.html
