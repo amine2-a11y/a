@@ -3,6 +3,7 @@ CACHE MANIFEST
 # v12 - goldhen b18.12
 
 CACHE:
+../../assets/amine-bg.webp
 ../../pspulse.png
 index.html
 run_lapse.html
