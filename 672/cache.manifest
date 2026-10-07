@@ -1,0 +1,24 @@
+CACHE MANIFEST 
+# AMINE-PS4-UI-UNIFIED-2026-10-07
+# v1.7 - goldhen b18.12
+
+CACHE: 
+../assets/amine-bg.webp
+index.html
+pl_loader.js
+goldhen.bin
+goldhen5.bin
+ftp.bin
+ps4debug.bin
+app2usb.bin
+backup.bin
+restore.bin
+disable-updates.bin
+enable-updates.bin
+rif-renamer.bin
+appcache-install.bin
+history-blocker.bin
+pup-decrypt.bin
+
+NETWORK: 
+* 
