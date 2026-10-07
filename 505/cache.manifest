@@ -25,4 +25,5 @@ pup-decrypt.bin
 restore.bin
 rif-renamer.bin
 CACHE:
+../assets/amine-theme.css
 ../assets/amine-bg.webp
