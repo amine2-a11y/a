@@ -160,7 +160,7 @@
             <p class="sub">Select the GoldHEN version to cache and use with the PSFree 9.xx host.</p>
             <ul class="boot">
                 <li>[ <b>ok</b> ] psfree 1.7 chain ready</li>
-                <li>[ <b>ok</b> ] 2 builds available</li>
+                <li>[ <b>ok</b> ] GoldHEN v2.4b18.12 ready</li>
             </ul>
 
             <section class="menu" aria-label="GoldHEN versions">
@@ -176,16 +176,6 @@
                             <span class="version-badge latest">Latest</span>
                             <span class="version-title">GoldHEN <span class="version-number">v2.4b18.12</span></span>
                             <span class="version-description">Latest release with improved stability, new features, and better compatibility. Recommended for most users.</span>
-                        </span>
-                        <span class="card-action">[ SELECT ]</span>
-                    </div>
-
-                    <div class="version-card" onclick="selectVersion('v2.4b18.5')" tabindex="0" data-version="stable">
-                        <span class="card-index">02</span>
-                        <span>
-                            <span class="version-badge">Stable</span>
-                            <span class="version-title">GoldHEN <span class="version-number">v2.4b18.5</span></span>
-                            <span class="version-description">Previous stable release with proven reliability. Choose this if the latest version causes issues or you prefer maximum stability.</span>
                         </span>
                         <span class="card-action">[ SELECT ]</span>
                     </div>
@@ -207,13 +197,8 @@
         function selectVersion(version) {
             // Store the selected version in localStorage
             localStorage.setItem('selectedGoldHENVersion', version);
-
-            // Redirect to appropriate cache page based on version
-            if (version === 'v2.4b18.12') {
-                window.location.href = 'cache.html';
-            } else if (version === 'v2.4b18.5') {
-                window.location.href = 'cache5.html';
-            }
+            // Single GoldHEN v2.4b18.12 entry; keep the existing host path.
+            window.location.href = 'cache.html';
         }
 
         // Gamepad navigation

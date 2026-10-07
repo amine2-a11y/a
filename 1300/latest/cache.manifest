@@ -2,6 +2,7 @@ CACHE MANIFEST
 # v12 - goldhen b18.12
 
 CACHE:
+../../pspulse.png
 index.html
 run_lapse.html
 run_poops.html
@@ -19,7 +20,6 @@ patches/1152.bin
 patches/1200.bin
 patches/1250.bin
 patches/1300.bin
-core.js?v=10
 
 NETWORK:
 *
