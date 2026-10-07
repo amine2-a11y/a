@@ -1,0 +1,28 @@
+/* AMINE PS4 — Compact Professional Theme: visual-only overrides */
+:root{--ac-cyan:#19d7ff;--ac-blue:#247cff;--ac-violet:#8b6cff;--ac-gold:#ffd52a;--ac-ok:#25e89a;--ac-text:#f4f8ff;--ac-muted:#91a4ba;--ac-panel:rgba(5,12,24,.84)}
+html,body{font-family:Arial,Helvetica,sans-serif!important;color:var(--ac-text)!important}
+body{background:linear-gradient(115deg,rgba(2,6,14,.86),rgba(2,13,28,.58),rgba(0,0,0,.72)),url("assets/amine-bg.webp") center/cover fixed no-repeat!important}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 50% 18%,rgba(25,215,255,.11),transparent 35%),linear-gradient(180deg,transparent 55%,rgba(0,0,0,.32));}
+.app,.wrap,.layout{position:relative;z-index:1}
+.bar{font-size:11px!important;letter-spacing:.06em!important;padding:7px 11px!important;border:1px solid rgba(25,215,255,.22)!important;border-radius:10px!important;background:rgba(3,10,21,.68)!important;box-shadow:0 8px 28px rgba(0,0,0,.28)!important}
+.kicker,.section-title,.bar b{font-size:10px!important;letter-spacing:.13em!important;color:var(--ac-cyan)!important}
+h1,.amine-title{font-size:clamp(28px,4vw,42px)!important;letter-spacing:-.045em!important;line-height:1.04!important}
+.sub,.amine-sub{font-size:12px!important;line-height:1.45!important;color:var(--ac-muted)!important}
+.boot,.status-meta,.foot,.bar-fw{font-size:10px!important;color:var(--ac-muted)!important}
+.amine-brand{font-size:12px!important;letter-spacing:.12em!important}
+.amine-card,.card,.controls,.status,.notification,.grid button,.amine-cache{border:1px solid rgba(25,215,255,.20)!important;border-radius:14px!important;background:linear-gradient(145deg,rgba(7,18,34,.90),rgba(3,9,20,.84))!important;box-shadow:0 14px 40px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.045)!important}
+.grid{gap:9px!important}
+.grid button,.amine-start,.amine-launch,.launch-core{font-size:12px!important;padding:11px 14px!important;border-radius:10px!important}
+.amine-info,.status,.controls{font-size:11px!important;line-height:1.35!important}
+.status-pass,.ready{font-size:10px!important;color:var(--ac-ok)!important}
+.amine-cache{padding:14px!important;margin:14px auto!important;max-width:680px!important;text-align:center!important}
+.progress-container{width:min(680px,92vw)!important;padding:18px!important;margin:18px auto!important;border-radius:16px!important;background:rgba(4,12,25,.90)!important;border:1px solid rgba(25,215,255,.30)!important}
+.progress-wrapper{padding:5px!important;border-radius:11px!important}
+.progress-bar{height:34px!important;border-radius:8px!important}
+.progress-text{font-size:12px!important}
+.launch-shell{border-radius:18px!important;background:linear-gradient(145deg,rgba(5,17,32,.92),rgba(4,9,20,.88))!important;border:1px solid rgba(25,215,255,.22)!important;box-shadow:0 18px 55px rgba(0,0,0,.4)!important}
+.launch-title{font-size:24px!important}.launch-sub{font-size:10px!important;color:var(--ac-muted)!important}.launch-status{font-size:11px!important}
+.amine-foot{font-size:9px!important;color:#72869c!important}
+a:focus,button:focus{outline:0!important;box-shadow:0 0 0 2px rgba(0,0,0,.9),0 0 0 4px var(--ac-cyan),0 0 18px rgba(25,215,255,.30)!important}
+a:hover,button:hover{border-color:var(--ac-cyan)!important}
+@media(max-width:900px){.app{width:calc(100% - 24px)!important;padding:10px 12px!important}.layout{padding-top:12px!important}.grid{grid-template-columns:1fr!important}.amine-cache{margin:10px auto!important}}
