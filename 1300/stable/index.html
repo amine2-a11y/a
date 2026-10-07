@@ -123,6 +123,22 @@
         .sub { font-size: 16px; }
         #state { font-size: 19px; }
     }
+
+/* AMINE PS4 compact launch UI */
+.launch-shell{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:center;margin-top:24px;padding:24px;border:1px solid var(--line-bright);background:rgba(18,18,18,.78);backdrop-filter:blur(3px)}
+.launch-ring{width:118px;height:118px;border:2px solid var(--line);border-top-color:var(--accent);border-right-color:var(--accent);border-radius:50%;display:grid;place-items:center;animation:amine-spin 1.8s linear infinite;box-shadow:0 0 24px rgba(162,148,255,.12)}
+.launch-core{width:82px;height:82px;border:1px solid var(--accent-dim,var(--accent));border-radius:50%;display:grid;place-items:center;text-align:center;animation:amine-pulse 1.8s ease-in-out infinite}
+.launch-core b{font-size:12px;color:var(--accent);letter-spacing:.08em}
+.launch-title{font-size:clamp(28px,5vw,48px);letter-spacing:-.05em;margin:0}.launch-title em{color:var(--accent);font-style:normal}
+.launch-sub{color:var(--muted);font-size:15px;margin:8px 0 16px}
+.launch-status{display:grid;gap:7px;max-width:720px}.launch-line{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:7px;color:var(--dim);font-size:13px}.launch-line b{font-weight:400;color:var(--accent)}
+.launch-state{margin-top:16px;padding:10px 12px;border-left:2px solid var(--accent);background:rgba(162,148,255,.06);color:var(--text);font-size:14px}
+.launch-tools{margin-top:12px}.launch-tools summary{cursor:pointer;color:var(--dim);font-size:13px;padding:8px 0}.launch-tools summary:focus{outline:1px solid var(--accent)}
+.launch-tools .controls{margin-top:4px}
+@keyframes amine-spin{to{transform:rotate(360deg)}}
+@keyframes amine-pulse{50%{transform:scale(.94);opacity:.72}}
+@media(max-width:760px){.launch-shell{grid-template-columns:1fr;text-align:center;padding:18px}.launch-ring{margin:auto}.launch-status{text-align:left}.launch-line{font-size:12px}}
+
 </style>
 </head>
 <body>
@@ -133,28 +149,25 @@
         </header>
 
         <main class="layout">
-            <p class="kicker">$ ./launch --slopkit</p>
-            <h1>SlopKit <em>11.00-13.00</em> host</h1>
-            <p class="sub">WebKit research host by AMINE PS4.</p>
-            <ul class="boot">
-                <li>[ <b>ok</b> ] webkit chain ready</li>
-                <li>[ <b>ok</b> ] offline cache ready</li>
-            </ul>
-
+            <div class="launch-shell" aria-label="AMINE PS4 launch screen">
+                <div class="launch-ring"><div class="launch-core"><b>AMINE<br>PS4</b></div></div>
+                <div>
+                    <p class="kicker">SYSTEM // OFFLINE HOST</p>
+                    <h1 class="launch-title">GoldHEN <em>Launch</em></h1>
+                    <p class="launch-sub">Compact startup screen. Cache is checked first; the existing host logic remains unchanged.</p>
+                    <div class="launch-status">
+                        <div class="launch-line"><span>FIRMWARE</span><b>11.00–13.00</b></div>
+                        <div class="launch-line"><span>GOLDHEN</span><b>v2.4b18.12</b></div>
+                        <div class="launch-line"><span>MODE</span><b>OFFLINE / CACHE</b></div>
+                    </div>
+                </div>
+            </div>
             <section class="status" id="wrap">
                 <div id="state">detecting firmware...</div>
                 <div id="det"></div>
                 <div id="cache"></div>
             </section>
-
-            <a class="nodeplay" href="https://nodeplay.net/" target="_blank" rel="noopener">
-                <span><span class="np-label">Premium game servers</span><span class="np-name">Node<b>Play</b></span></span>
-                <span class="np-open">OPEN &#8599;</span>
-            </a>
-
-            <footer class="foot">
-                Author: <a href="https://t.me/sudoBlackArch">BlackArch</a> // Telegram: <a href="https://t.me/PlayStation_Pulse">AMINE PS4</a>
-            </footer>
+            <footer class="foot">AMINE PS4 // GoldHEN launch interface</footer>
         </main>
     </div>
 
