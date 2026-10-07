@@ -51,5 +51,9 @@ payloads/WebRTE_900.bin
 rop/900.js
 rop/950.js
 
+assets/amine-compact.css
+
+assets/amine-zombie.css
+
 NETWORK: 
 *
